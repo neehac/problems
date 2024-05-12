@@ -1,0 +1,49 @@
+#Task
+Given an array, , of  integers, calculate and print the respective mean, median, and mode on separate lines. If your array contains more than one modal value, choose the numerically smallest one.
+Note: Other than the modal value (which will always be an integer), your answers should be in decimal form, rounded to a scale of  decimal place (i.e., ,  format).
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+N = int(input())
+# print(N)
+# print(type(N))
+X = input()
+# print(type(X))
+# print(X)
+res = list(map(int, X.split()))
+# print(res)
+# print(type(res))
+mean = sum(res)/N
+# print(res)
+print(mean)
+
+#median
+# X = input()
+# print(type(X))
+# print(X)
+# res = list(map(int, X.split()))
+# print(res)
+res.sort()
+# print(type(res))
+# print(res)
+if N % 2 ==0:
+    median1 = res[N//2]
+    median2 = res[N//2 -1]
+    median = (median1+median2)/2
+    
+else:
+    median = res[N//2]
+print(median)
+
+#mode
+l1=[]
+i=0
+while i<len(res):
+    l1.append(res.count(res[i]))
+    i+=1
+    
+d1=dict(zip(res,l1))
+d2 ={k for (k,v) in d1.items() if v == max(l1)}
+# print(str(d2))
+print(min(d2))
+# sorted(list(d2))
+# print(d2[0])
