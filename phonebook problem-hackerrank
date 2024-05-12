@@ -1,0 +1,23 @@
+import sys # for reading standard in
+
+n = int(sys.stdin.readline().strip()) # read numner of phonebook enteries
+
+phone_book = dict()
+
+for i in range(n):
+    entry = sys.stdin.readline().strip().split(' ')
+    phone_book[entry[0]] = entry[1]
+    
+query = sys.stdin.readline().strip()
+while query:
+    phone_number = phone_book.get(query)
+    if phone_number:
+        print(query + '=' + phone_number)
+    else:
+        print('Not found')
+    query = sys.stdin.readline().strip()
+
+
+#Task
+Given  names and phone numbers, assemble a phone book that maps friends' names to their respective phone numbers. You will then be given an unknown number of names to query your phone book for. For each  queried, print the associated entry from your phone book on a new line in the form name=phoneNumber; if an entry for  is not found, print Not found instead.
+Note: Your phone book should be a Dictionary/Map/HashMap data structure.
